@@ -25,7 +25,15 @@ const complexNumber = function() {
     return sum;
   }
 
-  const multiply = function() {};
+  const multiply = function(multiplier) {
+    const realPart = real * multiplier.getReal() - imaginary * multiplier.getImaginary();
+    const imaginaryPart = real * multiplier.getImaginary() + imaginary * multiplier.getReal();
+
+    const product = complexNumber();
+    product.assign(realPart, imaginaryPart);
+
+    return product;
+  }
 
   return {assign, getReal, getImaginary, add, multiply};
 }
