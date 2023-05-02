@@ -10,7 +10,14 @@ const complexNumber = function() {
     return {real: a + c, imaginary: b + d};
   }
 
-  return {getRealPart, add};
+  const multiply = function(number1, number2) {
+    const {real: a, imaginary: b} = number1;
+    const {real: c, imaginary: d} = number2;
+
+    return {real: (a * c - b * d), imaginary: (a * d + b * c)};
+  }
+
+  return {getRealPart, add, multiply};
 }
 
 exports.complexNumber = complexNumber;
