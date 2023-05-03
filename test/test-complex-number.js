@@ -1,4 +1,4 @@
-const {deepStrictEqual} = require('assert');
+const {strictEqual, deepStrictEqual} = require('assert');
 const {describe, it} = require('node:test');
 const {complexNumber} = require('../src/complex-number.js');
 
@@ -9,7 +9,7 @@ describe('complex number arithmetic', function() {
     const actual = c.getReal();
     const expected = 2;
 
-    deepStrictEqual(actual, expected);
+    strictEqual(actual, expected);
   });
 
   it('should return imaginary part of a complex nuber', function() {
@@ -17,7 +17,7 @@ describe('complex number arithmetic', function() {
     const actual = c.getImaginary();
     const expected = 3;
 
-    deepStrictEqual(actual, expected);
+    strictEqual(actual, expected);
   })
 
 
@@ -40,4 +40,13 @@ describe('complex number arithmetic', function() {
 
     deepStrictEqual([real, imaginary], [0, 2]);
   });
+
+  it('should display an imaginary number', function() {
+    const c = complexNumber(4, -6);
+    const actual = c.display();
+    const expected = '4 - 6i';
+
+    strictEqual(actual, expected);
+  });
+
 });

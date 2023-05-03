@@ -25,7 +25,17 @@ const complexNumber = function(real, imaginary) {
     return product;
   }
 
-  return {getReal, getImaginary, add, multiply};
+  const display = function() {
+    if(imaginary === 0)  return real;
+    if(real === 0) return `${imaginary}i`;
+
+    const sign = imaginary > 0 ? '+' : '-';
+    const imaginaryAbs = Math.abs(imaginary);
+
+    return `${real} ${sign} ${imaginaryAbs}i`;
+  }
+
+  return {getReal, getImaginary, add, multiply, display};
 }
 
 
