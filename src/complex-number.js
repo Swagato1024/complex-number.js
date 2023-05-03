@@ -7,9 +7,9 @@ const complexNumber = function(real, imaginary) {
     return imaginary;
   }
 
-  const add = function(augend) {
-    const realSum = real + augend.getReal();
-    const imaginarySum = imaginary + augend.getImaginary();
+  const add = function(number) {
+    const realSum = real + number.getReal();
+    const imaginarySum = imaginary + number.getImaginary();
 
     return complexNumber(realSum, imaginarySum);
   }
@@ -22,7 +22,7 @@ const complexNumber = function(real, imaginary) {
   }
 
   const format = function() {
-    if(imaginary === 0)  return real;
+    if(imaginary === 0)  return `${real}`;
     if(real === 0) return `${imaginary}i`;
 
     const sign = imaginary > 0 ? '+' : '-';

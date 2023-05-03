@@ -48,10 +48,34 @@ describe('complex number', function() {
   });
 
   describe('format', function() {
-    it('should format an imaginary number', function() {
+    it('should format an imaginary number with +ve real and +ve imaginary part', function() {
+      const c = complexNumber(4, 6);
+      const actual = c.format();
+      const expected = '4 + 6i';
+
+      strictEqual(actual, expected);
+    });
+
+    it('should format an imaginary number with +ve real and -ve imaginary part', function() {
       const c = complexNumber(4, -6);
       const actual = c.format();
       const expected = '4 - 6i';
+
+      strictEqual(actual, expected);
+    });
+
+    it('should format an purely imaginary number', function() {
+      const c = complexNumber(0, 6);
+      const actual = c.format();
+      const expected = '6i';
+
+      strictEqual(actual, expected);
+    });
+
+    it('should format an imaginary number with imaginary part 0', function() {
+      const c = complexNumber(7, 0);
+      const actual = c.format();
+      const expected = '7';
 
       strictEqual(actual, expected);
     });
