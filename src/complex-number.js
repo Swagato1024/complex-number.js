@@ -1,12 +1,4 @@
-const complexNumber = function() {
-  let real;
-  let imaginary;
-
-  const assign = function(_real, _imaginary) {
-    real = _real;
-    imaginary = _imaginary;
-  }
-
+const complexNumber = function(real, imaginary) {
   const getReal = function() {
     return real;
   }
@@ -19,8 +11,7 @@ const complexNumber = function() {
     const realSum = real + augend.getReal();
     const imaginarySum = imaginary + augend.getImaginary();
 
-    const sum = complexNumber();
-    sum.assign(realSum, imaginarySum);
+    const sum = complexNumber(realSum, imaginarySum);
 
     return sum;
   }
@@ -29,13 +20,12 @@ const complexNumber = function() {
     const realPart = real * multiplier.getReal() - imaginary * multiplier.getImaginary();
     const imaginaryPart = real * multiplier.getImaginary() + imaginary * multiplier.getReal();
 
-    const product = complexNumber();
-    product.assign(realPart, imaginaryPart);
+    const product = complexNumber(realPart, imaginaryPart);
 
     return product;
   }
 
-  return {assign, getReal, getImaginary, add, multiply};
+  return {getReal, getImaginary, add, multiply};
 }
 
 
