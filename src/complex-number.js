@@ -11,21 +11,17 @@ const complexNumber = function(real, imaginary) {
     const realSum = real + augend.getReal();
     const imaginarySum = imaginary + augend.getImaginary();
 
-    const sum = complexNumber(realSum, imaginarySum);
-
-    return sum;
+    return complexNumber(realSum, imaginarySum);
   }
 
   const multiply = function(multiplier) {
     const realPart = real * multiplier.getReal() - imaginary * multiplier.getImaginary();
     const imaginaryPart = real * multiplier.getImaginary() + imaginary * multiplier.getReal();
 
-    const product = complexNumber(realPart, imaginaryPart);
-
-    return product;
+    return complexNumber(realPart, imaginaryPart);
   }
 
-  const display = function() {
+  const format = function() {
     if(imaginary === 0)  return real;
     if(real === 0) return `${imaginary}i`;
 
@@ -35,7 +31,7 @@ const complexNumber = function(real, imaginary) {
     return `${real} ${sign} ${imaginaryAbs}i`;
   }
 
-  return {getReal, getImaginary, add, multiply, display};
+  return {getReal, getImaginary, add, multiply, format};
 }
 
 
